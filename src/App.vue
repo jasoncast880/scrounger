@@ -3,7 +3,7 @@
     <Header 
       title="Scrounger" headerText="Another man's trash is your treasure!"
     />
-    <Tasks :tasks = "tasks" />
+    <Tasks @delete-task="deleteTask" :tasks = "tasks" />
 
   </div>
 </template>
@@ -23,35 +23,23 @@ export default {
       tasks: []
     }
   },
-  created(){
-    this.tasks = 
-    [
-      {
-        id:1,
-        text: 'Doctor Apptmnt',
-        day: 'Mar 1',
-        reminder: true,
-      },
-      {
-        id:2,
-        text: 'meet at schoo',
-        day: 'Mar 2',
-        reminder: true,
-      },
-      {
-        id:3,
-        text: 'shoppe',
-        day: 'Mar 3',
-        reminder: true,
-      },
-      {
-        id:4,
-        text: 'ehehe',
-        day: 'Mar 3',
-        reminder: true,
-      },
-    ]
+  methods:{
+    deleteTask(id){
+      this.tasks=this.tasks.filter((task)=>task.id !==
+      id)
+    },
+    async fetchTasks() {
+      const res = await fetch('https://localhost:5000/tasks')
+
+      const data =await res.json()
+      
+      return data
+    },
+    async created(){
+      this.tasks = await this.fetchTasks()
+    },
   }
+  
 }
 </script>
 

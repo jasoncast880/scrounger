@@ -1,12 +1,11 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <Button text = "Add Task" color="green" />
+        <Button @toggle-add-task="$emit('toggle-add-task')" 
+         text = "Add Task"
+         color="green"
+         />
     </header>
-    <br>
-    <body>
-        <p><i>Another mans trash is your treasure!</i></p>
-    </body>
 </template>
 
 <script>

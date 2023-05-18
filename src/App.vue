@@ -1,45 +1,60 @@
 <template>
   <div class="container">
-    <Header 
-      title="Scrounger" headerText="Another man's trash is your treasure!"
+    <Header @toggle-add-task="toggleAddTask"
+      title="Scrounger"
     />
-    <Tasks @delete-task="deleteTask" :tasks = "tasks" />
-
+    <div v-if="showAddTask">
+    <AddTask @add-task="addTask"/>
+    </div>
+    <Tasks 
+      @toggle-reminder="toggleReminder" 
+      @delete-task="deleteTask" 
+      :tasks="tasks" 
+    />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
 import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks
+    Tasks,
+    AddTask
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      showAddTask: false
     }
   },
+
   methods:{
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask 
+    },
     deleteTask(id){
       this.tasks=this.tasks.filter((task)=>task.id !==
       id)
     },
+    toggleReminder(id){
+      this.tasks = this.tasks.map((task)=>task.id === id ? {...task, reminder: !task.reminder} : task
+      )
+    },
     async fetchTasks() {
-      const res = await fetch('https://localhost:5000/tasks')
-
+      const res = await fetch('http://localhost:5000/tasks')
       const data =await res.json()
-      
       return data
     },
-    async created(){
-      this.tasks = await this.fetchTasks()
-    },
-  }
-  
+  },
+
+  async created(){
+    this.tasks = await this.fetchTasks()
+  },
 }
 </script>
 

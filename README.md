@@ -17,3 +17,6 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+###Kanban Board Workflow Progress:
+https://trello.com/b/2VsttfsI/scrounger

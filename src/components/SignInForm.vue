@@ -1,5 +1,5 @@
 <template>
-  <div class="sign-on-box">
+  <div class="centered-btn-component">
     <h2 align="center">Login</h2>
     <form @submit="login">
       <p>
@@ -10,7 +10,12 @@
         <label for="password">Password</label>
         <input type="password" id="password" v-model="password" required>
       </p>
-      <button type="submit">Login</button>
+      <p>
+        <Button
+          @btn-click="$emit('toggle-add-task')"
+          :text="'Login'"
+        />
+      </p>
     </form>
   </div>
 </template>
@@ -18,12 +23,18 @@
 <script>
 import Button from './Button.vue'
 export default {
-  data() {
-    return {
-      username: '',
-      password: '',
-    };
+  name: 'SignInForm',
+  props: {
   },
+  components:{
+    Button,
+  },
+  // data() {
+  //   return {
+  //     username: '',
+  //     password: '',
+  //   };
+  // },
   methods: {
     login(event) {
       event.preventDefault();
@@ -40,5 +51,11 @@ export default {
 	p     { display: table-row;  }
 	label { display: table-cell; }
 	input { display: table-cell; }
+
+  .centered-btn-component{
+    margin: 0;
+    position: absolute;
+    left:50%;
+}
 /*style logic here*/
 </style>

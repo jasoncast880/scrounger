@@ -1,9 +1,10 @@
 <template>
-  <div class="container" id="app">
-    <div class = "centered-component">
-      <SignInForm />
+    <div class="container" id="app">
+     <!-- v-bind:style="background-image":'url('require('./assets/banner.jpg')')' -->
+      <div class = "centered-component">
+        <SignInForm />
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -24,6 +25,10 @@
   margin: 0;
   padding: 0;
 }
+main {
+  background-image: url('./assets/banner.jpg');
+  background-size: cover;
+}
 body {
   font-family: 'Poppins', sans-serif;
   
@@ -38,7 +43,7 @@ body {
   height: 100%;
   z-index: 9999;
   background: #181818;
-  color: #CCCC00;
+  color: #e8a725;
 }
 .centered-component{
   display: flex;

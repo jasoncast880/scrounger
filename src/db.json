@@ -1,3 +1,6 @@
 {
-  password = 'pee'    
+  props:{
+    "username" = "username",
+    "password" = "peeword",
+  }
 }

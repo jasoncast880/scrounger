@@ -1,5 +1,7 @@
 <template>
-    <button @click="onClick()" :style = "{background: color}" class="btn">{{text}}</button>
+  <div class="long-button">
+    <button @click="onClick()" :style = "{background: color}" >{{text}}</button>
+  </div>
 </template>
 
 <script>
@@ -19,3 +21,10 @@
         },
     }
 </script>
+
+<style>
+    .long-button{
+        width:90px;
+
+    }
+</style>

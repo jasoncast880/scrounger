@@ -1,7 +1,6 @@
 <template>
     <header>
-        <h1>{{title}}</h1>
-        <Button />
+        <h1>Scrounger</h1>
     </header>
 </template>
 
@@ -21,5 +20,9 @@ export default{
 </script>
 
 <style scoped>
+.container {
+    position: fixed;
+    
+}
 /*style logic here*/
 </style>

@@ -1,22 +1,32 @@
 <template>
-  <div class="centered-btn-component">
-    <h2 align="center">Login</h2>
-    <form @submit="login">
-      <p>
-        <label for="username">Username&#9&nbsp</label>
-        <input type="text" id="username" v-model="username" required>
-      </p>
-      <p>
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="password" required>
-      </p>
-      <p>
-        <Button
-          @btn-click="$emit('toggle-add-task')"
-          :text="'Login'"
-        />
-      </p>
-    </form>
+  <div class="container">
+    <h2>Login</h2>
+    <div>
+      <form @submit="login">
+        <p>
+          <label for="username">Username</label>
+        </p>
+        <p >
+          <input class = "submission-field" type="text" id="username" v-model="username" required>
+        </p>
+        <p>
+          <label for="password">Password</label>
+        </p>
+        <p>
+          <input type="password" id="password" v-model="password" required>
+        </p>
+        <p class="btn-component">
+          <Button
+            @btn-click="$emit('toggle-add-task')"
+            :text="'Login'"
+          />
+
+          <a href="url">Forgot Password</a>
+        </p>
+
+        
+      </form>
+    </div>
   </div>
 </template>
 
@@ -47,15 +57,30 @@ export default {
 </script>
 
 <style scoped>
+  a{font-size:12px}
+/* 
 	form  { display: table;      }
 	p     { display: table-row;  }
 	label { display: table-cell; }
-	input { display: table-cell; }
-
-  .centered-btn-component{
+	input { display: table-cell; } */
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 300px;
+    border-radius: 10px;
+    border-color: #999999;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #ffffff;
+  }
+  .btn-component{
     margin: 0;
-    position: absolute;
     left:50%;
-}
+    display:inline-block;
+  }
+
 /*style logic here*/
 </style>

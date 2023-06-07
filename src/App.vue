@@ -1,10 +1,7 @@
 <template>
-    <div class="container" id="app">
-     <!-- v-bind:style="background-image":'url('require('./assets/banner.jpg')')' -->
-      <div class = "centered-component">
-        <SignInForm />
-      </div>
-    </div>
+  <div class = "center">
+    <SignInForm />
+  </div>
 </template>
 
 <script>
@@ -33,7 +30,7 @@ body {
   font-family: 'Poppins', sans-serif;
   
 }
-.container {
+/* .container {
   position: fixed;
   top:0;
   left:0;
@@ -42,13 +39,14 @@ body {
   width: 100%;
   height: 100%;
   z-index: 9999;
-  background: #181818;
-  color: #e8a725;
-}
-.centered-component{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:90vh;
+  background: #f7f5f5;
+  color: #181818;
+} */
+.center {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

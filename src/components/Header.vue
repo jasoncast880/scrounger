@@ -1,14 +1,22 @@
 <template>
-    <header>
-        <h1>Scrounger</h1>
-    </header>
+    <div class="header-flex-container">
+        <div>
+            <a href="url"><img class="icon-container" :src="IconImage"></a>
+        </div>
+        <div class="center-box"><h1 class="header-text-container">Scrounger</h1></div>
+    </div>
 </template>
 
 <script>
 import Button from './Button.vue'
-
+import IconImage from '@/assets/icons/trash-panda-icon.jpg';
 export default{
     name: 'Header',
+    data(){
+        return{
+            IconImage: IconImage,
+        }
+    },
     props: {
         title: String,
     },
@@ -20,9 +28,27 @@ export default{
 </script>
 
 <style scoped>
-.container {
-    position: fixed;
-    
+.header-flex-container{
+    display:flex;
+    background:#5c9173;
+    color: white;
+    position: static;
+    width:100%;
+    height:120px;
+}
+.icon-container{
+    height: auto;
+    width: 80px;
+    margin:20px;
+}
+.header-text-container{
+    margin-left:0px;
+    text-align:center;
+}
+.center-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 /*style logic here*/
 </style>

@@ -25,6 +25,5 @@
 <style>
     .long-button{
         width:90px;
-
     }
 </style>

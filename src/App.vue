@@ -1,16 +1,26 @@
 <template>
-  <div class = "center">
-    <SignInForm />
+  <div class="flex-wrapper">
+    <div id="header-id"><Header/></div>
+
+    <div class="center" id="form-id">
+      <!-- re-add ceter class -->
+      <SignInForm />
+    </div>
+
+    <div id="footer-id"><Footer/></div>
   </div>
 </template>
 
 <script>
+  import Header from './components/Header.vue'
   import SignInForm from './components/SignInForm.vue';
-
+  import Footer from './components/Footer.vue';
   export default{
     name: 'App',
     components:{
       SignInForm,
+      Header,
+      Footer,
     },
   }
 </script>
@@ -22,31 +32,34 @@
   margin: 0;
   padding: 0;
 }
-main {
-  background-image: url('./assets/banner.jpg');
-  background-size: cover;
-}
 body {
   font-family: 'Poppins', sans-serif;
   
 }
 /* .container {
   position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
+  
   background: #f7f5f5;
   color: #181818;
 } */
 .center {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-wrapper{
+    display:flex;
+    flex-direction:column;
+    height: 100vh;
+    z-index: 9999;
+}
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+#form-id{
+  margin-top:40px;
+  margin-bottom:20px;
+}
+
+#footer-id{
+  margin-top:auto;
 }
 </style>
